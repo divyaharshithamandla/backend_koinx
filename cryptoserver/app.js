@@ -11,18 +11,19 @@ const PORT = 3000;
 // Middleware
 app.use(express.json());
 
-// MongoDB Connection
+// MongoDB Atlas Connection
+const mongoURI =
+  "mongodb+srv://divyaharshitha7704:21B91A54A2@cluster0.tdvjxih.mongodb.net/cryptoDB?retryWrites=true&w=majority";
+
 mongoose
-  .connect("mongodb://localhost:27017/cryptoDB", { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB Atlas connected"))
   .catch((error) => console.error("MongoDB connection error:", error));
 
 // Routes
 app.use(statsRoute);
 app.use(deviationRoutes);
 
-
-  
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
