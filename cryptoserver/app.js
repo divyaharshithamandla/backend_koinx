@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const fetchCryptoData = require("./jobs/cryptoJob");
 
 const statsRoute = require("./routes/stats");
-const deviationRoute = require("./routes/deviation");
+const deviationRoutes = require("./routes/deviation");
 
 const app = express();
 const PORT = 3000;
@@ -19,7 +19,7 @@ mongoose
 
 // Routes
 app.use(statsRoute);
-app.use(deviationRoute);
+app.use(deviationRoutes);
 
 
   
